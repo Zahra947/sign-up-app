@@ -1,11 +1,22 @@
-import React from "react";
-import "./style.css";
+import './App.css';
+import styled from 'styled-components';
+import { AccountBox } from './components/accountBox';
 
-export default function App() {
+const AppContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+function App() {
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <AppContainer>
+      <AccountBox />
+    </AppContainer>
   );
 }
+
+export default App;
