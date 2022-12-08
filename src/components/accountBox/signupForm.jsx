@@ -3,6 +3,8 @@ import { useFormik } from 'formik';
 import {
   BoldLink,
   BoxContainer,
+  FieldContainer,
+  FieldError,
   FormContainer,
   Input,
   MutedLink,
@@ -33,6 +35,11 @@ const validationSchema = yup.object({
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
 
+  const onSubmit = (values) => {
+    alert('You are registered, Welcome');
+    formik.resetForm();
+  };
+
   const formik = useFormik({
     initialValues: {
       fullName: '',
@@ -47,37 +54,71 @@ export function SignupForm(props) {
   return (
     <BoxContainer>
       <FormContainer onSubmit={formik.handleSubmit}>
-        <Input
-          name="fullName"
-          type="text"
-          placeholder="Full Name"
-          value={formik.values.fullName}
-          onChange={handleChange}
-        />
-        <Input
-          name="email"
-          type="email"
-          placeholder="Email"
-          value={formik.values.email}
-          onChange={handleChange}
-        />
-        <Input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={formik.values.password}
-          onChange={handleChange}
-        />
-        <Input
-          name="confirmPassword"
-          type="password"
-          placeholder="Confirm Password"
-          value={formik.values.confirmPassword}
-          onChange={handleChange}
-        />
+        <FieldContainer>
+          <Input
+            name="fullName"
+            type="text"
+            placeholder="Full Name"
+            value={formik.values.fullName}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          <FieldError>
+            {formik.touched.fullName && formik.errors.fullName
+              ? formik.errors.fullName
+              : ''}
+          </FieldError>
+        </FieldContainer>
+        <FieldContainer>
+          <Input
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          <FieldError>
+            {formik.touched.email && formik.errors.email
+              ? formik.errors.email
+              : ''}
+          </FieldError>
+        </FieldContainer>
+        <FieldContainer>
+          <Input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          <FieldError>
+            {formik.touched.password && formik.errors.password
+              ? formik.errors.password
+              : ''}
+          </FieldError>
+        </FieldContainer>
+        <FieldContainer>
+          <Input
+            name="confirmPassword"
+            type="password"
+            placeholder="Confirm Password"
+            value={formik.values.confirmPassword}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          <FieldError>
+            {formik.touched.confirmPassword && formik.errors.confirmPassword
+              ? formik.errors.confirmPassword
+              : ''}
+          </FieldError>
+        </FieldContainer>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
-      <SubmitButton type="submit">Signup</SubmitButton>
+      <SubmitButton type="submit" disabled={!formik.isValid}>
+        Signup
+      </SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Already have an account?

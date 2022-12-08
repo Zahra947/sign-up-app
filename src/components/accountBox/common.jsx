@@ -12,7 +12,7 @@ export const FormContainer = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 2.5px rgba(15, 15, 15, 0.19);
+  //box-shadow: 0px 0px 2.5px rgba(15, 15, 15, 0.19);
 `;
 
 export const MutedLink = styled.a`
@@ -66,6 +66,12 @@ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,121,120,1) 35%, rgba
   &:hover {
     filter: brightness(1.03);
   }
+  &:focus {
+    outline: none;}
+  &: disabled{
+    filter: contrast(0.5);
+  }
+  
 `;
 export const FieldContainer = styled.div`
 width:100;
