@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useFormik } from 'formik';
 import {
   BoldLink,
@@ -6,6 +6,7 @@ import {
   FieldContainer,
   FieldError,
   FormContainer,
+  FormSuccess,
   Input,
   MutedLink,
   SubmitButton,
@@ -34,10 +35,13 @@ const validationSchema = yup.object({
 
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
+  //const { success, setSuccess } = useState(null);
 
-  const onSubmit = async (values) => {
+  const onSubmit = async (values, actions) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
+    //setSuccess('Thanks for registering.');
     formik.resetForm();
+    alert('Thanks for registering.');
   };
 
   const formik = useFormik({
@@ -115,11 +119,11 @@ export function SignupForm(props) {
               : ''}
           </FieldError>
         </FieldContainer>
+        <Marginer direction="vertical" margin={10} />
+        <SubmitButton type="submit" disabled={!formik.isValid}>
+          Signup
+        </SubmitButton>
       </FormContainer>
-      <Marginer direction="vertical" margin={10} />
-      <SubmitButton type="submit" disabled={!formik.isValid}>
-        Signup
-      </SubmitButton>
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Already have an account?

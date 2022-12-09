@@ -25,6 +25,7 @@ export function LoginForm(props) {
   const onSubmit = async (values) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     formik.resetForm();
+    alert('Welcome Back');
   };
 
   const formik = useFormik({
@@ -67,13 +68,14 @@ export function LoginForm(props) {
               : ''}
           </FieldError>
         </FieldContainer>
+        <Marginer direction="vertical" margin="1.6em" />
+        <SubmitButton type="submit" disabled={!formik.isValid}>
+          Signin
+        </SubmitButton>
       </FormContainer>
       <Marginer direction="vertical" margin={10} />
       <MutedLink href="#">Forget your password?</MutedLink>
-      <Marginer direction="vertical" margin="1.6em" />
-      <SubmitButton type="submit" disabled={!formik.isValid}>
-        Signin
-      </SubmitButton>
+
       <Marginer direction="vertical" margin="1em" />
       <MutedLink href="#">
         Don't have an accoun?{' '}

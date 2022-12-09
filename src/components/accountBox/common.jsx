@@ -83,3 +83,8 @@ color:#b32e2e;
 font-size:11px;
 min-height:18px;
 `;
+export const FormSuccess = styled.span`
+color:#28a828;
+font-size:12px;
+min-height:20px;
+`;
