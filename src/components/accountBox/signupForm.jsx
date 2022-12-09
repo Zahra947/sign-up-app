@@ -35,8 +35,8 @@ const validationSchema = yup.object({
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
 
-  const onSubmit = (values) => {
-    alert('You are registered, Welcome');
+  const onSubmit = async (values) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     formik.resetForm();
   };
 
@@ -49,6 +49,7 @@ export function SignupForm(props) {
     },
     validateOnBlur: true,
     validationSchema: validationSchema,
+    onSubmit,
   });
 
   return (
