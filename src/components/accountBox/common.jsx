@@ -74,7 +74,7 @@ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,121,120,1) 35%, rgba
   
 `;
 export const FieldContainer = styled.div`
-width:100;
+width:100%;
 display:flex;
 flex-direction:column;
 `;
