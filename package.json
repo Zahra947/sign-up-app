@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@testing-library/dom": ">=7.21.4",
-    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "axios": "^1.2.1",
@@ -16,7 +15,6 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-is": ">= 16.8.0",
-    "react-test-renderer": "^18.2.0",
     "styled-components": "^5.3.6",
     "yarn": "^2.4.3",
     "yup": "^0.32.11"
